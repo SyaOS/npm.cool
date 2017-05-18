@@ -1,0 +1,39 @@
+{
+  "name": "npm.cool",
+  "version": "0.0.0",
+  "description": "Give your package a cool name on npm.",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "DEBUG=npm.cool node --require dotenv/config .",
+    "test": "standard",
+    "dev": "DEBUG=* nodemon --require dotenv/config ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SyaOS/npm.cool.git"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "George Chung <gerhut@sya.org.cn>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SyaOS/npm.cool/issues"
+  },
+  "homepage": "https://github.com/SyaOS/npm.cool#readme",
+  "engines": {
+    "node": "^7.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "debug": "^2.6.7",
+    "dotenv": "^4.0.0",
+    "koa": "^2.2.0",
+    "koa-route": "^3.2.0",
+    "koa-static": "^3.0.0",
+    "superagent": "^3.5.2"
+  }
+}
