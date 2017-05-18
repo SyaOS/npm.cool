@@ -13,9 +13,10 @@
       <div class="hero-body">
         <form class="container" @submit.prevent="setHash(query)">
           <h1 class="title is-1 has-text-centered">NPM.Cool</h1>
+          <p class="subtitle has-text-centered">Give your package a cool name on npm.</p>
           <div class="field has-addons">
             <p class="control is-expanded">
-              <input class="input is-medium" type="text" placeholder="Find your cool package name" v-model="query">
+              <input class="input is-medium" type="text" placeholder="Cool ideas." v-model="query">
             </p>
             <p class="control">
               <button class="button is-primary is-inverted is-outlined is-medium" type="submit">
