@@ -32,8 +32,10 @@
     <section class="section">
       <p class="container">
         <a class="tag is-medium" v-for="result in results"
-          :class="result.available ? 'is-success' : 'is-danger'" v-text="result.name"
-          @click="setHash(result.name)"></a>
+          :class="result.available ? 'is-success' : 'is-danger'"
+          :href="(result.available ? 'https://www.npmjs.com/package/' : '#') + result.name"
+          :target="result.available ? '_blank' : null"
+          v-text="result.name"></a>
       </p>
     </section>
     <footer class="footer">
