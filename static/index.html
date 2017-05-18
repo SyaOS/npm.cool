@@ -21,7 +21,7 @@
             <p class="control">
               <button class="button is-primary is-inverted is-outlined is-medium" type="submit">
                 <span class="icon">
-                  <i class="fa fa-rocket"></i>
+                  <i class="fa fa-hand-o-up"></i>
                 </span>
               </button>
             </p>
@@ -34,8 +34,10 @@
         <a class="tag is-medium" v-for="result in results"
           :class="result.available ? 'is-success' : 'is-danger'"
           :href="(result.available ? 'https://www.npmjs.com/package/' : '#') + result.name"
-          :target="result.available ? '_blank' : null"
-          v-text="result.name"></a>
+          :target="result.available ? '_blank' : null">
+          <span class="icon"><i class="fa" :class="result.available ? 'fa-hand-peace-o' : 'fa-hand-stop-o'"></i></span>
+          <span v-text="result.name"></span>
+        </a>
       </p>
     </section>
     <footer class="footer">
