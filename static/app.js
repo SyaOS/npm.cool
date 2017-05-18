@@ -10,6 +10,7 @@ new Vue({
   },
   watch: {
     submit (submit) {
+      if (submit === '') return
       this.results = []
       this.exists(submit).then(exists => {
         if (submit !== this.submit) return
