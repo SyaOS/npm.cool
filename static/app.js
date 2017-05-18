@@ -31,6 +31,10 @@ new Vue({
       })
     }
   },
+  created () {
+    const hash = this.hash
+    if (hash.length) this.query = hash
+  },
   mounted () {
     const hash = this.hash
     if (hash.length) this.submit = hash
