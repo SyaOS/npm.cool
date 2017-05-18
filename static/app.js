@@ -8,12 +8,6 @@ new Vue({
     submit: '',
     results: []
   },
-  computed: {
-    hash: {
-      get () { return window.location.hash.replace(/^#/, '') },
-      set (hash) { this.submit = window.location.hash = hash }
-    }
-  },
   watch: {
     submit (submit) {
       this.results = []
@@ -32,14 +26,25 @@ new Vue({
     }
   },
   created () {
-    const hash = this.hash
-    if (hash.length) this.query = hash
+    const hash = this.getHash()
+    if (hash.length) this.query = this.submit = hash
   },
   mounted () {
-    const hash = this.hash
-    if (hash.length) this.submit = hash
+    window.addEventListener('hashchange', this.hashchange)
+  },
+  beforeDestroy () {
+    window.removeEventListener('hashchange', this.hashchange)
   },
   methods: {
+    setHash (hash) {
+      window.location.hash = hash
+    },
+    getHash () {
+      return window.location.hash.replace(/^#/, '')
+    },
+    hashchange () {
+      this.submit = this.query = this.getHash()
+    },
     exists (name) {
       return superagent.get(`/exists/${name}`).then(() => true, () => false)
     },

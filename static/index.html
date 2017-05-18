@@ -11,7 +11,7 @@
   <main>
     <header class="hero is-primary">
       <div class="hero-body">
-        <form class="container" @submit.prevent="hash = query">
+        <form class="container" @submit.prevent="setHash(query)">
           <h1 class="title is-1 has-text-centered">NPM.Cool</h1>
           <div class="field has-addons">
             <p class="control is-expanded">
@@ -28,7 +28,7 @@
       <p class="container">
         <a class="tag is-medium" v-for="result in results"
           :class="result.available ? 'is-success' : 'is-danger'" v-text="result.name"
-          @click="hash = query = result.name"></a>
+          @click="setHash(result.name)"></a>
       </p>
     </section>
     <footer class="footer">
