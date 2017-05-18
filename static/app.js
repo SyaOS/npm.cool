@@ -1,6 +1,7 @@
 /* global Vue, superagent */
 
-const vm = new Vue({
+/* eslint-disable no-new */
+new Vue({
   el: 'main',
   data: {
     query: 'cool',
@@ -9,21 +10,21 @@ const vm = new Vue({
   },
   computed: {
     hash: {
-      get () { return location.hash.replace(/^#/, '') },
-      set (hash) { this.submit = location.hash = hash }
+      get () { return window.location.hash.replace(/^#/, '') },
+      set (hash) { this.submit = window.location.hash = hash }
     }
   },
   watch: {
     submit (submit) {
       this.results = []
       this.exists(submit).then(exists => {
-        if (submit != this.submit) return
+        if (submit !== this.submit) return
         this.results.push({ name: submit, available: !exists })
         if (!exists) return
         this.recommends(submit).then(names => {
-          if (submit != this.submit) return
+          if (submit !== this.submit) return
           names.forEach(name => this.exists(name).then(exists => {
-            if (submit != this.submit) return
+            if (submit !== this.submit) return
             this.results.push({ name, available: !exists })
           }))
         })
